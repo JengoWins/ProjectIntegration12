@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPILibragy</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPILibragy.Controllers.AccountController.GetAccount(WebAPILibragy.model.custom.Account)">
+            <summary>Вход в систему</summary>
+            <remarks>
+            Простой пример данных:
+            
+                GET Account/Autorization
+                {        
+                  "username": "JengoWins",
+                  "password": "12345",       
+                }
+            </remarks>
+            <response code="200">Получить имя и роль пользователя</response>
+            <response code="400">Не найден пользователь (стандарт. случай), либо ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LibraryController.GetBooks">
+            <summary>Получение всех книг</summary>
+            <response code="200">Получить список книг</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LibraryController.GetBooks(System.Int32,System.String[])">
+            <summary>Получение книги по опционалу</summary>
+            <response code="200">Получить книгу</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LibraryController.GetBooks(System.Int32,System.Int32)">
+            <summary>Получение книги через пагинацию</summary>
+            <response code="200">Получить книги с ограниченном кол-во</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LibraryController.PostBook(WebAPILibragy.model.custom.Books)">
+            <summary>Создать книгу</summary>
+            <remarks>
+            Простой пример данных:
+            
+                POST Library/v1/CreateBook
+                {
+                    "last_name": "Дрю",
+                    "first_name": "Карпишен",
+                    "patronymic": "",
+                    "name": "Звездные Войны. Старая Республика. Реван",
+                    "genres": "Фантастика",
+                    "publisher": "Эксмо",
+                    "city": "Москва",
+                    "pages": 0,
+                    "description": "История о джедае героя, предателя, завоевателя и спасителя. Окунитесь в путешествие старого джедая, который бродил по космосу, в поисках воспоминаний",
+                    "years": "2025-10-05T18:31:48.059Z"
+                }
+            </remarks>
+            <response code="200">Получить имя и роль пользователя</response>
+            <response code="400">Не найден пользователь (стандарт. случай), либо ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LibraryController.UpdateBook(WebAPILibragy.model.custom.Books)">
+            <summary>Обновить книгу</summary>
+            <remarks>
+            Простой пример данных:
+            
+                PUT Library/v1/UpdateBook
+                {
+                    "last_name": "Дрю",
+                    "first_name": "Карпишен",
+                    "patronymic": "",
+                    "name": "Звездные Войны. Реван",
+                    "genres": "Фантастика",
+                    "publisher": "Эксмо",
+                    "city": "Москва",
+                    "pages": 0,
+                    "description": "История о джедае-спасителе.",
+                    "years": "2025-10-05T18:31:48.059Z"
+                }
+            </remarks>
+            <response code="200">Получить имя и роль пользователя</response>
+            <response code="400">Не найден элемент книги (стандарт. случай, уточнение смотрите в состоянии ошибки), либо ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LibraryController.DeleteBook(WebAPILibragy.model.custom.Books)">
+            <summary>Удалить книгу</summary>
+            <remarks>
+            Простой пример данных:
+            
+                DELETE Library/v1/DeleteBook
+                {
+                    "last_name": "Дрю",
+                    "first_name": "Карпишен",
+                    "patronymic": "",
+                    "name": "Звездные Войны. Старая Республика. Реван",
+                    "genres": "Фантастика",
+                    "publisher": "Эксмо",
+                    "city": "Москва",
+                    "pages": 0,
+                    "description": "История о джедае героя, предателя, завоевателя и спасителя. Окунитесь в путешествие старого джедая, который бродил по космосу, в поисках воспоминаний",
+                    "years": "2025-10-05T18:31:48.059Z"
+                }
+            </remarks>
+            <response code="200">Удаление аккаунта</response>
+            <response code="400">Ошибка удаления (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LoansController.GetAllLeaseholder">
+            <summary>Получить весь список состояния учета книг и читателей</summary>
+            <response code="200">Вернул список состояния читателей</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LoansController.GetLeaseholder(System.String,System.String)">
+            <summary>Получить список состояния учета книг и читателей по фильтру</summary>
+            <response code="200">Вернул список состояния читателей</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LoansController.PostLeaseholder(WebAPILibragy.model.custom.Loans_Min)">
+            <summary>Создать учет книги и читателя</summary>
+            <remarks>
+            Простой пример данных:
+            
+                POST Loans/v2/create
+                {
+                  "last_name": "Jengo",
+                  "first_name": "Ravioris",
+                  "phone": "89467115274",
+                  "name_book": "Звездные Войны. Старая Республика. Реван",
+                  "genres": "Фантастика",
+                  "publisher": "Эксмо",
+                  "status": "Занят",
+                  "time_of_issue": "2025-10-21T18:26:49.690Z"
+                }
+            </remarks>
+            <response code="200">Запись данных</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LoansController.UpdateLeaseholder(WebAPILibragy.model.custom.Loans_Min)">
+            <summary>Обновить учет книги и читателя</summary>
+            <remarks>
+            Простой пример данных:
+            
+                PUT Loans/v2/update
+                {
+                  "last_name": "Jengo",
+                  "first_name": "Ravioris",
+                  "phone": "89467115274",
+                  "name_book": "Звездные Войны. Старая Республика. Реван",
+                  "genres": "Фантастика",
+                  "publisher": "Эксмо",
+                  "status": "Свободный",
+                  "time_of_issue": "2025-10-21T18:26:49.690Z"
+                }
+            </remarks>
+            <response code="200">Запись обновленных данных</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.LoansController.DeleteLeaseholder(WebAPILibragy.model.custom.Loans_Min)">
+            <summary>Удаление учет книги и читателя</summary>
+            <remarks>
+            Простой пример данных:
+            
+                DELETE Loans/v2/delete
+                {
+                  "last_name": "Jengo",
+                  "first_name": "Ravioris",
+                  "phone": "89467115274",
+                  "name_book": "Звездные Войны. Старая Республика. Реван",
+                  "genres": "Фантастика",
+                  "publisher": "Эксмо",
+                  "status": "Занят",
+                  "time_of_issue": "2025-10-21T18:26:49.690Z"
+                }
+            </remarks>
+            <response code="200">Удаление данных</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.ReadersController.GetAllUser">
+            <summary>Вывод списка читателей</summary>
+            <response code="200">Вернул список читателей</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.ReadersController.GetUser(System.String)">
+            <summary>Вывод читателя по фамилии</summary>
+            <response code="200">Вернул читателя по фамилии</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.ReadersController.PostUser(WebAPILibragy.model.custom.Readers)">
+            <summary>Создать читателя</summary>
+            <remarks>
+            Простой пример данных:
+            
+                POST Readers/v1/add
+                {
+                   "last_name": "Jengo",
+                   "first_name": "Ravioris",
+                   "patronymic": "",
+                   "email": "Raviori@mail.ru",
+                   "phone": "89467115274",
+                   "address": "Moskow"
+                }
+            </remarks>
+            <response code="200">Создать читателя</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.ReadersController.UpdateUser(WebAPILibragy.model.custom.Readers)">
+            <summary>Обновить читателя</summary>
+            <remarks>
+            Простой пример данных:
+            
+                PUT Readers/v1/update
+                {
+                   "last_name": "Jengo",
+                   "first_name": "Ravioris",
+                   "patronymic": "Goungan",
+                   "email": "Raviori@mail.ru",
+                   "phone": "89467115274",
+                   "address": "Moskow"
+                }
+            </remarks>
+            <response code="200">Создать читателя</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+        <member name="M:WebAPILibragy.Controllers.ReadersController.DeleteUser(WebAPILibragy.model.custom.Readers)">
+            <summary>Удалить читателя</summary>
+            <remarks>
+            Простой пример данных:
+            
+                DELETE Readers/v1/delete
+                {
+                   "last_name": "Jengo",
+                   "first_name": "Ravioris",
+                   "patronymic": "",
+                   "email": "Raviori@mail.ru",
+                   "phone": "89467115274",
+                   "address": "Moskow"
+                }
+            </remarks>
+            <response code="200">Удалить читателя</response>
+            <response code="400">Ошибка (смотрите исключение)</response>
+            <response code="429">Превышен лимит запросов</response>
+        </member>
+    </members>
+</doc>

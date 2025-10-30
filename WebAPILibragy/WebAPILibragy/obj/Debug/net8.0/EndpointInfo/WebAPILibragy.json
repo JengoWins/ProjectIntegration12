@@ -1,0 +1,1305 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Система учета информации о книгах и читателей библиотеки. ",
+    "license": {
+      "name": "Работник: Куренков Алексей"
+    },
+    "version": "Стандарт v1"
+  },
+  "paths": {
+    "/Account/Autorization": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Вход в систему",
+        "description": "Простой пример данных:\r\n\r\n    GET Account/Autorization\r\n    {        \r\n      \"username\": \"JengoWins\",\r\n      \"password\": \"12345\",       \r\n    }",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Получить имя и роль пользователя"
+          },
+          "400": {
+            "description": "Не найден пользователь (стандарт. случай), либо ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Account/TEST429": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Library/v{version}/GetBooks": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Получение всех книг",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Получить список книг"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Library/v{version}/GetBooks/{count_list},{includes}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Получение книги по опционалу",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "count_list",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includes",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Получить книгу"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Library/v{version}/GetBooks/{name}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Library/v{version}/GetBooks/{limit},{offset}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Получение книги через пагинацию",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Получить книги с ограниченном кол-во"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Library/v{version}/CreateBook": {
+      "post": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Создать книгу",
+        "description": "Простой пример данных:\r\n\r\n    POST Library/v1/CreateBook\r\n    {\r\n        \"last_name\": \"Дрю\",\r\n        \"first_name\": \"Карпишен\",\r\n        \"patronymic\": \"\",\r\n        \"name\": \"Звездные Войны. Старая Республика. Реван\",\r\n        \"genres\": \"Фантастика\",\r\n        \"publisher\": \"Эксмо\",\r\n        \"city\": \"Москва\",\r\n        \"pages\": 0,\r\n        \"description\": \"История о джедае героя, предателя, завоевателя и спасителя. Окунитесь в путешествие старого джедая, который бродил по космосу, в поисках воспоминаний\",\r\n        \"years\": \"2025-10-05T18:31:48.059Z\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Получить имя и роль пользователя"
+          },
+          "400": {
+            "description": "Не найден пользователь (стандарт. случай), либо ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Library/v{version}/UpdateBook": {
+      "put": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Обновить книгу",
+        "description": "Простой пример данных:\r\n\r\n    PUT Library/v1/UpdateBook\r\n    {\r\n        \"last_name\": \"Дрю\",\r\n        \"first_name\": \"Карпишен\",\r\n        \"patronymic\": \"\",\r\n        \"name\": \"Звездные Войны. Реван\",\r\n        \"genres\": \"Фантастика\",\r\n        \"publisher\": \"Эксмо\",\r\n        \"city\": \"Москва\",\r\n        \"pages\": 0,\r\n        \"description\": \"История о джедае-спасителе.\",\r\n        \"years\": \"2025-10-05T18:31:48.059Z\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Получить имя и роль пользователя"
+          },
+          "400": {
+            "description": "Не найден элемент книги (стандарт. случай, уточнение смотрите в состоянии ошибки), либо ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Library/v{version}/DeleteBook": {
+      "delete": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Удалить книгу",
+        "description": "Простой пример данных:\r\n\r\n    DELETE Library/v1/DeleteBook\r\n    {\r\n        \"last_name\": \"Дрю\",\r\n        \"first_name\": \"Карпишен\",\r\n        \"patronymic\": \"\",\r\n        \"name\": \"Звездные Войны. Старая Республика. Реван\",\r\n        \"genres\": \"Фантастика\",\r\n        \"publisher\": \"Эксмо\",\r\n        \"city\": \"Москва\",\r\n        \"pages\": 0,\r\n        \"description\": \"История о джедае героя, предателя, завоевателя и спасителя. Окунитесь в путешествие старого джедая, который бродил по космосу, в поисках воспоминаний\",\r\n        \"years\": \"2025-10-05T18:31:48.059Z\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Удаление аккаунта"
+          },
+          "400": {
+            "description": "Ошибка удаления (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Loans/v{version}": {
+      "get": {
+        "tags": [
+          "Loans"
+        ],
+        "summary": "Получить весь список состояния учета книг и читателей",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Вернул список состояния читателей"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Loans/v{version}/{filter},{category}": {
+      "get": {
+        "tags": [
+          "Loans"
+        ],
+        "summary": "Получить список состояния учета книг и читателей по фильтру",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "Свободный"
+            }
+          },
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "status"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Вернул список состояния читателей"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Loans/v{version}/create": {
+      "post": {
+        "tags": [
+          "Loans"
+        ],
+        "summary": "Создать учет книги и читателя",
+        "description": "Простой пример данных:\r\n\r\n    POST Loans/v2/create\r\n    {\r\n      \"last_name\": \"Jengo\",\r\n      \"first_name\": \"Ravioris\",\r\n      \"phone\": \"89467115274\",\r\n      \"name_book\": \"Звездные Войны. Старая Республика. Реван\",\r\n      \"genres\": \"Фантастика\",\r\n      \"publisher\": \"Эксмо\",\r\n      \"status\": \"Занят\",\r\n      \"time_of_issue\": \"2025-10-21T18:26:49.690Z\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Запись данных"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Loans/v{version}/update": {
+      "put": {
+        "tags": [
+          "Loans"
+        ],
+        "summary": "Обновить учет книги и читателя",
+        "description": "Простой пример данных:\r\n\r\n    PUT Loans/v2/update\r\n    {\r\n      \"last_name\": \"Jengo\",\r\n      \"first_name\": \"Ravioris\",\r\n      \"phone\": \"89467115274\",\r\n      \"name_book\": \"Звездные Войны. Старая Республика. Реван\",\r\n      \"genres\": \"Фантастика\",\r\n      \"publisher\": \"Эксмо\",\r\n      \"status\": \"Свободный\",\r\n      \"time_of_issue\": \"2025-10-21T18:26:49.690Z\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Запись обновленных данных"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Loans/v{version}/delete": {
+      "delete": {
+        "tags": [
+          "Loans"
+        ],
+        "summary": "Удаление учет книги и читателя",
+        "description": "Простой пример данных:\r\n\r\n    DELETE Loans/v2/delete\r\n    {\r\n      \"last_name\": \"Jengo\",\r\n      \"first_name\": \"Ravioris\",\r\n      \"phone\": \"89467115274\",\r\n      \"name_book\": \"Звездные Войны. Старая Республика. Реван\",\r\n      \"genres\": \"Фантастика\",\r\n      \"publisher\": \"Эксмо\",\r\n      \"status\": \"Занят\",\r\n      \"time_of_issue\": \"2025-10-21T18:26:49.690Z\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loans_Min"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Удаление данных"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Readers/v{version}": {
+      "get": {
+        "tags": [
+          "Readers"
+        ],
+        "summary": "Вывод списка читателей",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Вернул список читателей"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Readers/v{version}/{first_name}": {
+      "get": {
+        "tags": [
+          "Readers"
+        ],
+        "summary": "Вывод читателя по фамилии",
+        "parameters": [
+          {
+            "name": "first_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Вернул читателя по фамилии"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Readers/v{version}/add": {
+      "post": {
+        "tags": [
+          "Readers"
+        ],
+        "summary": "Создать читателя",
+        "description": "Простой пример данных:\r\n\r\n    POST Readers/v1/add\r\n    {\r\n       \"last_name\": \"Jengo\",\r\n       \"first_name\": \"Ravioris\",\r\n       \"patronymic\": \"\",\r\n       \"email\": \"Raviori@mail.ru\",\r\n       \"phone\": \"89467115274\",\r\n       \"address\": \"Moskow\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Создать читателя"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Readers/v{version}/update": {
+      "put": {
+        "tags": [
+          "Readers"
+        ],
+        "summary": "Обновить читателя",
+        "description": "Простой пример данных:\r\n\r\n    PUT Readers/v1/update\r\n    {\r\n       \"last_name\": \"Jengo\",\r\n       \"first_name\": \"Ravioris\",\r\n       \"patronymic\": \"Goungan\",\r\n       \"email\": \"Raviori@mail.ru\",\r\n       \"phone\": \"89467115274\",\r\n       \"address\": \"Moskow\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Создать читателя"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Readers/v{version}/delete": {
+      "delete": {
+        "tags": [
+          "Readers"
+        ],
+        "summary": "Удалить читателя",
+        "description": "Простой пример данных:\r\n\r\n    DELETE Readers/v1/delete\r\n    {\r\n       \"last_name\": \"Jengo\",\r\n       \"first_name\": \"Ravioris\",\r\n       \"patronymic\": \"\",\r\n       \"email\": \"Raviori@mail.ru\",\r\n       \"phone\": \"89467115274\",\r\n       \"address\": \"Moskow\"\r\n    }",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Readers"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Удалить читателя"
+          },
+          "400": {
+            "description": "Ошибка (смотрите исключение)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Books": {
+        "type": "object",
+        "properties": {
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "patronymic": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "genres": {
+            "type": "string",
+            "nullable": true
+          },
+          "publisher": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "pages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "years": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Loans_Min": {
+        "type": "object",
+        "properties": {
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_book": {
+            "type": "string",
+            "nullable": true
+          },
+          "genres": {
+            "type": "string",
+            "nullable": true
+          },
+          "publisher": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "time_of_issue": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "Readers": {
+        "type": "object",
+        "properties": {
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "patronymic": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "IdempotenceKey": {
+        "type": "apiKey",
+        "description": "Idempotence Key (GUID)",
+        "name": "Idempotence-Key",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "IdempotenceKey": [ ]
+    }
+  ]
+}

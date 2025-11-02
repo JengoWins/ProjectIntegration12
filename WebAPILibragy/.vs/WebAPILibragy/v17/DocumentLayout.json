@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\controllers\\loanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\controllers\\loanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\controllers\\readerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\controllers\\readerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\controllers\\librarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\controllers\\librarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\database\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\database\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\model\\custom\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\model\\custom\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\controllers\\librarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\controllers\\librarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\database\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\database\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\controllers\\readerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\controllers\\readerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|solutionrelative:webapilibragy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5AA8F785-C270-4CA1-9CCE-437758FCFF68}|WebAPILibragy\\WebAPILibragy.csproj|e:\\\u0441#projectintegrate\\webapilibragy\\webapilibragy\\model\\database\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -114,7 +114,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -122,33 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "WebAPILibragy\\Controllers\\AccountController.cs",
-              "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "WebAPILibragy\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAowFgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T19:24:03.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LibraryController.cs",
-              "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LibraryController.cs",
-              "RelativeDocumentMoniker": "WebAPILibragy\\Controllers\\LibraryController.cs",
-              "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LibraryController.cs*",
-              "RelativeToolTip": "WebAPILibragy\\Controllers\\LibraryController.cs*",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAcwBMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T15:47:45.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "DBConnect.cs",
               "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\DataBase\\DBConnect.cs",
               "RelativeDocumentMoniker": "WebAPILibragy\\DataBase\\DBConnect.cs",
@@ -169,12 +143,11 @@
               "RelativeToolTip": "WebAPILibragy\\model\\custom\\Books.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwBYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T20:36:42.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T20:36:42.459Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Account.cs",
               "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\model\\custom\\Account.cs",
               "RelativeDocumentMoniker": "WebAPILibragy\\model\\custom\\Account.cs",
@@ -187,6 +160,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoansController.cs",
+              "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LoansController.cs",
+              "RelativeDocumentMoniker": "WebAPILibragy\\Controllers\\LoansController.cs",
+              "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LoansController.cs",
+              "RelativeToolTip": "WebAPILibragy\\Controllers\\LoansController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAowH4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:08:59.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LibraryController.cs",
+              "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LibraryController.cs",
+              "RelativeDocumentMoniker": "WebAPILibragy\\Controllers\\LibraryController.cs",
+              "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LibraryController.cs",
+              "RelativeToolTip": "WebAPILibragy\\Controllers\\LibraryController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAswIIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T15:47:45.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Account.cs",
               "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\model\\database\\Account.cs",
@@ -195,46 +194,44 @@
               "RelativeToolTip": "WebAPILibragy\\model\\database\\Account.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T19:26:26.521Z",
+              "WhenOpened": "2025-10-19T19:26:26.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "WebAPILibragy\\Controllers\\AccountController.cs",
+              "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "WebAPILibragy\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAGoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T19:24:03.68Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Program.cs",
               "RelativeDocumentMoniker": "WebAPILibragy\\Program.cs",
               "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Program.cs",
               "RelativeToolTip": "WebAPILibragy\\Program.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAEkAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAkwJEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:34:02.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T17:34:02.22Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ReadersController.cs",
               "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\ReadersController.cs",
               "RelativeDocumentMoniker": "WebAPILibragy\\Controllers\\ReadersController.cs",
               "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\ReadersController.cs",
               "RelativeToolTip": "WebAPILibragy\\Controllers\\ReadersController.cs",
-              "ViewState": "AgIAAJ0AAAAAAAAAAAAcwF8AAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAwwLcAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-04T16:10:01.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoansController.cs",
-              "DocumentMoniker": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LoansController.cs",
-              "RelativeDocumentMoniker": "WebAPILibragy\\Controllers\\LoansController.cs",
-              "ToolTip": "E:\\\u0421#ProjectIntegrate\\WebAPILibragy\\WebAPILibragy\\Controllers\\LoansController.cs",
-              "RelativeToolTip": "WebAPILibragy\\Controllers\\LoansController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowEwAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T14:08:59.361Z",
               "EditorCaption": ""
             },
             {
@@ -247,8 +244,7 @@
               "RelativeToolTip": "WebAPILibragy\\model\\database\\Readers.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAowA4AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T16:34:14.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T16:34:14.582Z"
             },
             {
               "$type": "Document",
@@ -260,8 +256,7 @@
               "RelativeToolTip": "WebAPILibragy\\model\\database\\role.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T19:35:24.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T19:35:24.674Z"
             },
             {
               "$type": "Document",
@@ -273,8 +268,7 @@
               "RelativeToolTip": "WebAPILibragy\\Classes\\IdempotentAttribute.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwB8AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T19:58:37.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-18T19:58:37.973Z"
             },
             {
               "$type": "Document",
@@ -286,8 +280,7 @@
               "RelativeToolTip": "WebAPILibragy\\WebAPILibragy.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-04T15:50:28.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T15:50:28.833Z"
             },
             {
               "$type": "Document",
@@ -299,8 +292,7 @@
               "RelativeToolTip": "WebAPILibragy\\model\\custom\\Readers.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T14:12:19.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-15T14:12:19.949Z"
             },
             {
               "$type": "Document",

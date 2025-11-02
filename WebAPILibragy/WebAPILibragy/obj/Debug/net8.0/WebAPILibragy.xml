@@ -25,12 +25,6 @@
             <response code="400">Ошибка (смотрите исключение)</response>
             <response code="429">Превышен лимит запросов</response>
         </member>
-        <member name="M:WebAPILibragy.Controllers.LibraryController.GetBooks(System.Int32,System.String[])">
-            <summary>Получение книги по опционалу</summary>
-            <response code="200">Получить книгу</response>
-            <response code="400">Ошибка (смотрите исключение)</response>
-            <response code="429">Превышен лимит запросов</response>
-        </member>
         <member name="M:WebAPILibragy.Controllers.LibraryController.GetBooks(System.Int32,System.Int32)">
             <summary>Получение книги через пагинацию</summary>
             <response code="200">Получить книги с ограниченном кол-во</response>
@@ -187,9 +181,9 @@
             <response code="400">Ошибка (смотрите исключение)</response>
             <response code="429">Превышен лимит запросов</response>
         </member>
-        <member name="M:WebAPILibragy.Controllers.ReadersController.GetUser(System.String)">
-            <summary>Вывод читателя по фамилии</summary>
-            <response code="200">Вернул читателя по фамилии</response>
+        <member name="M:WebAPILibragy.Controllers.ReadersController.GetUser(System.String,System.String[])">
+            <summary>Получение книги по опционалу</summary>
+            <response code="200">Получить книгу</response>
             <response code="400">Ошибка (смотрите исключение)</response>
             <response code="429">Превышен лимит запросов</response>
         </member>

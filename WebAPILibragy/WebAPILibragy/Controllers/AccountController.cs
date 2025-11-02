@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.InteropServices;
 using System.Security.Claims;
+using System.Xml.Linq;
 using WebAPILibragy.Classes;
 using WebAPILibragy.DataBase;
 using WebAPILibragy.model.database;
@@ -94,5 +95,49 @@ public class AccountController : ControllerBase
             requestNumber = _requestCount,
             timestamp = DateTime.UtcNow
         });
+    }
+
+    [HttpPost("DontUseStageTable")]
+    public async Task<IActionResult> PostData()
+    {
+        List<Genres> gen = [
+            new Genres { name = "Фантастика" },
+            new Genres { name = "Романтика" },
+            new Genres { name = "Классика" }
+        ];
+        List<List_Read_Status> status = [
+            new List_Read_Status { status = "Забранирован" },
+            new List_Read_Status { status = "Занят" },
+            new List_Read_Status { status = "Свободный" }
+        ];
+        List<Publish> publish = [
+            new Publish { name = "Эксмо", city = "Москва" },
+            new Publish { name = "Занзара", city = "Екатеринбург" }
+        ];
+        List<role> roles = [
+            new role { roles = "Booking" },
+            new role { roles = "admin" },
+            new role {roles = "Reading" }
+        ];
+        Account account = new Account
+        { 
+            username = "JengoWins",
+            password = "12345",
+            id_role = roles[1].id
+        };
+
+        context.Genres.AddRange(gen);
+        context.SaveChanges();
+        context.List_Read_Status.AddRange(status);
+        context.SaveChanges();
+        context.Publish.AddRange(publish);
+        context.SaveChanges();
+        context.role.AddRange(roles);
+        context.SaveChanges();
+
+        context.Account.Add(account);
+        context.SaveChanges();
+
+        return Ok("Проверьте свою БД");
     }
 }

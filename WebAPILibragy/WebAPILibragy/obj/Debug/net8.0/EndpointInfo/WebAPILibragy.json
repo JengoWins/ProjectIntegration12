@@ -141,90 +141,6 @@
         }
       }
     },
-    "/Library/v{version}/GetBooks/{count_list},{includes}": {
-      "get": {
-        "tags": [
-          "Library"
-        ],
-        "summary": "Получение книги по опционалу",
-        "parameters": [
-          {
-            "name": "version",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "count_list",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "includes",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Получить книгу"
-          },
-          "400": {
-            "description": "Ошибка (смотрите исключение)",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Превышен лимит запросов"
-          }
-        }
-      }
-    },
     "/Library/v{version}/GetBooks/{name}": {
       "get": {
         "tags": [
@@ -891,12 +807,12 @@
         }
       }
     },
-    "/Readers/v{version}/{first_name}": {
+    "/Readers/v{version}/filters/{first_name}": {
       "get": {
         "tags": [
           "Readers"
         ],
-        "summary": "Вывод читателя по фамилии",
+        "summary": "Получение книги по опционалу",
         "parameters": [
           {
             "name": "first_name",
@@ -904,6 +820,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "includes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
@@ -917,7 +843,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Вернул читателя по фамилии"
+            "description": "Получить книгу"
           },
           "400": {
             "description": "Ошибка (смотрите исключение)",

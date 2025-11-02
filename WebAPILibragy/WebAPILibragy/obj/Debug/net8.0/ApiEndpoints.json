@@ -166,57 +166,6 @@
   {
     "ContainingType": "WebAPILibragy.Controllers.LibraryController",
     "Method": "GetBooks",
-    "RelativePath": "Library/v{version}/GetBooks/{count_list},{includes}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "count_list",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "includes",
-        "Type": "System.String[]",
-        "IsRequired": false
-      },
-      {
-        "Name": "version",
-        "Type": "",
-        "IsRequired": true
-      },
-      {
-        "Name": "count_list",
-        "Type": "",
-        "IsRequired": true
-      },
-      {
-        "Name": "includes",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebAPILibragy.Controllers.LibraryController",
-    "Method": "GetBooks",
     "RelativePath": "Library/v{version}/GetBooks/{limit},{offset}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -540,42 +489,6 @@
   },
   {
     "ContainingType": "WebAPILibragy.Controllers.ReadersController",
-    "Method": "GetUser",
-    "RelativePath": "Readers/v{version}/{first_name}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "first_name",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "version",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebAPILibragy.Controllers.ReadersController",
     "Method": "PostUser",
     "RelativePath": "Readers/v{version}/add",
     "HttpMethod": "POST",
@@ -622,6 +535,47 @@
         "Name": "read",
         "Type": "WebAPILibragy.model.custom.Readers",
         "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPILibragy.Controllers.ReadersController",
+    "Method": "GetUser",
+    "RelativePath": "Readers/v{version}/filters/{first_name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "first_name",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "includes",
+        "Type": "System.String[]",
+        "IsRequired": false
       },
       {
         "Name": "version",

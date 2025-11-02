@@ -88,7 +88,7 @@ public class LoansController : ControllerBase
     ///       "last_name": "Jengo",
     ///       "first_name": "Ravioris",
     ///       "phone": "89467115274",
-    ///       "name_book": "Звездные Войны. Старая Республика. Реван",
+    ///       "name_book": "Звездные Войны. Реван",
     ///       "genres": "Фантастика",
     ///       "publisher": "Эксмо",
     ///       "status": "Занят",
@@ -107,9 +107,10 @@ public class LoansController : ControllerBase
         try
         {
             //Формирование данных по таблицам без связей
-            model.database.Readers readers = context.Readers.FirstOrDefault(p => p.first_name == read.first_name && p.last_name == read.last_name && p.phone == read.phone);
+            model.database.Readers readers = context.Readers.FirstOrDefault(p => p.first_name == read.first_name && p.phone == read.phone);
             Name_Books book_name = context.Name_Books.FirstOrDefault(p => p.name == read.name_book);
             model.database.Books books = context.Books.FirstOrDefault(p => p.id_name == book_name.id);
+
             Genres genres = context.Genres.FirstOrDefault(p => p.name == read.genres);
             Publish publish = context.Publish.FirstOrDefault(p => p.name == read.publisher);
             List_Read_Status status = context.List_Read_Status.FirstOrDefault(p=>p.status == read.status);
@@ -118,10 +119,11 @@ public class LoansController : ControllerBase
                 id_books = books.id,
                 id_readers=readers.id,
                 id_status=status.id,
-                time_of_issue = read.time_of_issue};
+                time_of_issue = read.time_of_issue
+            };
 
             //Распределение несвязных данных по таблицам
-            context.Loans.AddRange(loans);
+            context.Loans.Add(loans);
             context.SaveChanges();
             logger.LogDebug("Рычаг PostLeaseholder(CLoans модель) - Записал данные");
             context.SaveChanges();

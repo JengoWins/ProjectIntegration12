@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebAPILibragy.Classes;
 using WebAPILibragy.DataBase;
@@ -54,6 +55,7 @@ public class ReadersController : ControllerBase
             return BadRequest("Произошла ошибка c выводом пользователей в систему. Уровень ошибки в районе Бекенда.  Тип ошибки: " + ex);
         }
     }
+    /*
     /// <summary>Вывод читателя по фамилии</summary>
     /// <response code="200">Вернул читателя по фамилии</response>
     /// <response code="400">Ошибка (смотрите исключение)</response>
@@ -73,6 +75,55 @@ public class ReadersController : ControllerBase
             return BadRequest("Произошла ошибка c выводом пользователя в систему. Уровень ошибки в районе Бекенда.  Тип ошибки: " + ex);
         }
     }
+    */
+    /// <summary>Получение книги по опционалу</summary>
+    /// <response code="200">Получить книгу</response>
+    /// <response code="400">Ошибка (смотрите исключение)</response>
+    /// <response code="429">Превышен лимит запросов</response>
+    [HttpGet("filters/{first_name}")]
+    [Authorize(Roles = "admin, Reading")]
+    public async Task<IActionResult> GetUser(string first_name, [FromQuery] string[] includes)
+    {
+        try
+        {
+            int elementCount = includes.Length;
+            List<Readers?> Readers = null;
+            switch (elementCount)
+            {
+                case 0:
+                    Readers = context.Readers.Where(p => p.first_name == first_name).ToList();
+                    break;
+                case 1:
+                    Readers = context.Readers.Where(p => p.first_name == first_name && p.last_name == includes[0]).ToList();
+                    break;
+                case 2:
+                    Readers = context.Readers.Where(p => p.first_name == first_name && p.last_name == includes[0] && p.patronymic == includes[1]).ToList();
+                    break;
+                case 3:
+                     Readers = context.Readers.Where(p => p.first_name == first_name && p.last_name == includes[0] && p.patronymic == includes[1] && p.email == includes[2]).ToList();
+                    break;
+            }
+
+
+            if (Readers != null)
+            {
+                List<CReaders> CReaders = new List<CReaders>();
+                for (int i = 0; i < Readers.Count; i++)
+                {
+                    CReaders read = new CReaders(Readers[i]);
+                    CReaders.Add(read);
+                }
+                return Ok(CReaders);
+            }
+            else
+                return BadRequest("Серваку не удалось найти данные");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest("Произошла ошибка c выводом книги по его Названию. Уровень ошибки в районе SQL-Запроса.  Тип ошибки: " + ex);
+        }
+    }
+
     /// <summary>Создать читателя</summary>
     /// <remarks>
     /// Простой пример данных:
@@ -130,9 +181,22 @@ public class ReadersController : ControllerBase
     {
         try
         {
-            Readers Readers = new Readers(read);
-            context.Readers.Update(Readers);
-            context.SaveChangesAsync();
+            Readers red = context.Readers.FirstOrDefault(p => p.first_name == read.first_name);
+            Readers Readers = red;
+            context.Readers.Remove(red);
+            context.SaveChanges();
+
+            if (read.patronymic != Readers.patronymic)
+                Readers.patronymic = read.patronymic;
+            if (read.email != Readers.email)
+                Readers.email = read.email;
+            if (read.phone != Readers.phone)
+                Readers.phone = read.phone;
+            if (read.address != Readers.address)
+                Readers.address = read.address;
+            
+            context.Readers.Add(Readers);
+            context.SaveChanges();
             return Ok("Обновление пользователя");
         }
         catch (Exception ex)

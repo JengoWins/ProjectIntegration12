@@ -42,25 +42,6 @@ builder.Services.AddRateLimiter(rateLimiterOptions =>
         options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
         options.QueueLimit = 1;
     });
-    /*
-    rateLimiterOptions.OnRejected = async (context, token) =>
-    {
-        var httpContext = context.HttpContext;
-
-        // Получаем метаданные из lease
-        if (context.Lease.TryGetMetadata(MetadataName.RetryAfter, out TimeSpan retryAfter))
-        {
-            httpContext.Response.Headers.RetryAfter = ((int)retryAfter.TotalSeconds).ToString();
-        }
-
-        // Добавляем заголовки с информацией о лимитах
-        httpContext.Response.Headers["XLimitRemaining"] = "0";
-        httpContext.Response.Headers["XLimitLimit"] = "10";
-
-        httpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
-        await httpContext.Response.WriteAsync("Too many requests. Please try again later.", token);
-    };
-    */
     rateLimiterOptions.OnRejected = async (context, token) =>
     {
         context.HttpContext.Response.Headers.RetryAfter = "1";

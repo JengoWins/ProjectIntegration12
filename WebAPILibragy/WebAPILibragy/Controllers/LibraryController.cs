@@ -50,13 +50,14 @@ public class LibraryController : ControllerBase
             return BadRequest("Произошла ошибка c выводом книг. Уровень ошибки в районе SQL-Запроса.  Тип ошибки: " + ex);
         }
     }
+    /*
     /// <summary>Получение книги по опционалу</summary>
     /// <response code="200">Получить книгу</response>
     /// <response code="400">Ошибка (смотрите исключение)</response>
     /// <response code="429">Превышен лимит запросов</response>
     [HttpGet("GetBooks/{count_list},{includes}")]
     [Authorize(Roles = "admin, Booking")]
-    public async Task<IActionResult> GetBooks([FromBody] int count_list, [FromForm]string[] includes)
+    public async Task<IActionResult> GetBooks(int count_list, [FromQuery]string[] includes)
     {
         try
         {
@@ -99,6 +100,7 @@ public class LibraryController : ControllerBase
             return BadRequest("Произошла ошибка c выводом книги по его Названию. Уровень ошибки в районе SQL-Запроса.  Тип ошибки: " + ex);
         }
     }
+    */
     [HttpGet("GetBooks/{name}")]
     [Authorize(Roles = "admin, Booking")]
     public async Task<IActionResult> GetBooks(string name)
@@ -126,9 +128,9 @@ public class LibraryController : ControllerBase
         {
             string query = $"SELECT \"Author\".last_name AS last_name, \"Author\".first_name AS first_name, \"Author\".patronymic AS patronymic, \"Name_Books\".name AS name, \"Genres\".name AS genres, \"Publish\".name AS publisher, \"Publish\".city AS city, \"Books\".pages AS pages, \"Books\".description AS description, \"Books\".years AS years FROM \"Books\" JOIN \"Author\" ON \"Books\".id_author = \"Author\".id JOIN \"Name_Books\" ON \"Books\".id_name = \"Name_Books\".id JOIN \"Genres\" ON \"Books\".id_genres = \"Genres\".id JOIN \"Publish\" ON \"Books\".id_publish = \"Publish\".id";
             string query_where = "";
-            query_where = $"LIMIT {limit} OFFSET {offset}";
+            query_where = $" LIMIT {limit} OFFSET {offset}";
 
-            var books = context.Database.SqlQueryRaw<CBooks>(query);
+            var books = context.Database.SqlQueryRaw<CBooks>(query+query_where);
             logger.LogDebug("Рычаг GetBooks(s) - Вызвать все книги по названию");
             return Ok(books);
         }

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.OpenApi.Models;
 using System.ComponentModel;
 using System.Reflection;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.RateLimiting;
 using WebAPILibragy.Classes;
 using WebAPILibragy.DataBase;
@@ -23,7 +25,11 @@ builder.Services.AddDbContext<DBConnect>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddLogging();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+});
 // Добавляем версионирование
 builder.Services.AddApiVersioning(options =>
 {

@@ -37,6 +37,31 @@
   },
   {
     "ContainingType": "WebAPILibragy.Controllers.AccountController",
+    "Method": "PostData",
+    "RelativePath": "Account/DontUseStageTable",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPILibragy.Controllers.AccountController",
     "Method": "Get429",
     "RelativePath": "Account/TEST429",
     "HttpMethod": "GET",
@@ -535,6 +560,42 @@
         "Name": "read",
         "Type": "WebAPILibragy.model.custom.Readers",
         "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPILibragy.Controllers.ReadersController",
+    "Method": "GetUser",
+    "RelativePath": "Readers/v{version}/filters",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "includes",
+        "Type": "System.String[]",
+        "IsRequired": false
       },
       {
         "Name": "version",

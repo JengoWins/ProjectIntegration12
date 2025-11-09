@@ -95,6 +95,38 @@
         }
       }
     },
+    "/Account/DontUseStageTable": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Library/v{version}/GetBooks": {
       "get": {
         "tags": [
@@ -569,7 +601,7 @@
           "Loans"
         ],
         "summary": "Создать учет книги и читателя",
-        "description": "Простой пример данных:\r\n\r\n    POST Loans/v2/create\r\n    {\r\n      \"last_name\": \"Jengo\",\r\n      \"first_name\": \"Ravioris\",\r\n      \"phone\": \"89467115274\",\r\n      \"name_book\": \"Звездные Войны. Старая Республика. Реван\",\r\n      \"genres\": \"Фантастика\",\r\n      \"publisher\": \"Эксмо\",\r\n      \"status\": \"Занят\",\r\n      \"time_of_issue\": \"2025-10-21T18:26:49.690Z\"\r\n    }",
+        "description": "Простой пример данных:\r\n\r\n    POST Loans/v2/create\r\n    {\r\n      \"last_name\": \"Jengo\",\r\n      \"first_name\": \"Ravioris\",\r\n      \"phone\": \"89467115274\",\r\n      \"name_book\": \"Звездные Войны. Реван\",\r\n      \"genres\": \"Фантастика\",\r\n      \"publisher\": \"Эксмо\",\r\n      \"status\": \"Занят\",\r\n      \"time_of_issue\": \"2025-10-21T18:26:49.690Z\"\r\n    }",
         "parameters": [
           {
             "name": "version",
@@ -867,6 +899,58 @@
           },
           "429": {
             "description": "Превышен лимит запросов"
+          }
+        }
+      }
+    },
+    "/Readers/v{version}/filters": {
+      "get": {
+        "tags": [
+          "Readers"
+        ],
+        "parameters": [
+          {
+            "name": "includes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }

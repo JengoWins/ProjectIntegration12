@@ -4,11 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using WebAPILibragy.Classes;
 using WebAPILibragy.DataBase;
 using WebAPILibragy.model.database;
 //using CLoans = WebAPILibragy.model.custom.Loans_Min;
 using CReaders = WebAPILibragy.model.custom.Readers;
+using OReaders = WebAPILibragy.model.custom.ReadersOption;
 namespace WebAPILibragy.Controllers;
 
 [ApiController]
@@ -121,6 +125,58 @@ public class ReadersController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest("Произошла ошибка c выводом книги по его Названию. Уровень ошибки в районе SQL-Запроса.  Тип ошибки: " + ex);
+        }
+    }
+
+    [MapToApiVersion("2")]
+    [HttpGet("filters/")]
+    [Authorize(Roles = "admin, Reading")]
+    public async Task<IActionResult> GetUser([FromQuery] string[] includes)
+    {
+        try
+        {
+            int elementCount = includes.Length;
+            string query = "SELECT * FROM \"Readers\"";
+            var q = FormattableStringFactory.Create(query);
+            var readers = context.Database.SqlQuery<CReaders>(q).ToList();
+            if (elementCount != 0)
+                return Ok(readers.Select(reader =>
+                {
+                    var dict = new Dictionary<string, object>();
+
+                    foreach (var field in includes)
+                    {
+                        try
+                        {
+                            // Получаем свойство из фактического типа объекта
+                            var property = reader.GetType().GetProperties()
+                                .FirstOrDefault(p => p.Name.Equals(field, StringComparison.OrdinalIgnoreCase));
+
+                            if (property != null && property.CanRead)
+                            {
+                                var value = property.GetValue(reader);
+                                dict[property.Name] = value ?? "";
+                            }
+                            else
+                            {
+                                dict[field] = "Property not found";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            dict[field] = $"Error: {ex.Message}";
+                        }
+                    }
+                    return dict;
+                }).ToList());
+            else
+                return Ok(readers);
+            //json = JsonSerializer.Serialize(readers, options);
+            //return Ok(json);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest("Произошла ошибка c выводом списка пользователей по фильтрации. Уровень ошибки в районе SQL-Запроса.  Тип ошибки: " + ex);
         }
     }
 

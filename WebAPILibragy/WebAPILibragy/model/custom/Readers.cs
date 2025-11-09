@@ -1,10 +1,12 @@
-﻿namespace WebAPILibragy.model.custom;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebAPILibragy.model.custom;
 
 [Serializable]
-public class Readers
+public class Readers 
 {
     public Readers() { }
-    public Readers(string Luser, string Fuser, string patronymic, string email, string phone, string address) 
+    public Readers(string Luser=null, string Fuser = null, string patronymic = null, string email = null, string phone = null, string address = null) 
     {
         last_name = Luser;
         first_name = Fuser;
@@ -13,7 +15,7 @@ public class Readers
         this.phone = phone;
         this.address = address;
     }
-    public Readers(database.Readers read) 
+    public Readers(database.Readers? read) 
     {
         last_name = read.last_name;
         first_name = read.first_name;
@@ -28,4 +30,29 @@ public class Readers
     public string email { get; set; }
     public string phone { get; set; }
     public string address { get; set; }
+}
+
+public partial class ReadersOption
+{
+    public string? last_name { get; set; }
+}
+public partial class ReadersOption
+{
+    public string? first_name { get; set; }
+}
+public partial class ReadersOption
+{
+    public string? patronymic { get; set; }
+}
+public partial class ReadersOption
+{
+    public string? email { get; set; }
+}
+public partial class ReadersOption
+{
+    public string? phone { get; set; }
+}
+public partial class ReadersOption
+{
+    public string? address { get; set; }
 }
